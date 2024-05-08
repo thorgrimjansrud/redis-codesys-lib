@@ -2,7 +2,7 @@
 description: Redis Codesys client
 ---
 
-# redis-codesys
+# redis-codesys-lib
 
 ## ! <mark style="color:red;">Experimental !</mark>
 
