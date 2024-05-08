@@ -2,13 +2,13 @@
 description: Redis Codesys client
 ---
 
-# redis-plcopen
+# redis-codesys
 
 ## ! <mark style="color:red;">Experimental !</mark>
 
 ## About
 
-A CoDeSys [PLCopen](https://plcopen.org/) client for [Redis ](https://redis.io/)and [KeyDB](https://docs.keydb.dev/). Should run on all CoDeSys 3.5 supported plattforms.
+A [CoDeSys ](https://www.codesys.com/) client for [Redis ](https://redis.io/) and [KeyDB](https://docs.keydb.dev/). Should run on all CoDeSys 3.5 supported plattforms.
 
 ## Prerequisite
 
@@ -32,6 +32,7 @@ All necesarry libraries are availible in a standard CoDeSys installation. Add th
 * [GET](readme/get.md)
 * [SET](readme/set.md)
 * [HSET](readme/hset.md)
+* [HGET](readme/hget.md)
 * [EXCISTS](readme/excists.md)
 * [PUBLISH](readme/publish.md)
 * [SUBSCRIBE](readme/subscribe.md)
