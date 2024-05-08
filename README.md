@@ -8,7 +8,7 @@ description: Redis Codesys client
 
 ## About
 
-A [CoDeSys ](https://www.codesys.com/) client for [Redis ](https://redis.io/) and [KeyDB](https://docs.keydb.dev/). Should run on all CoDeSys 3.5 supported plattforms.
+A [CoDeSys ](https://www.codesys.com/) client for [Redis ](https://redis.io/) and [KeyDB](https://docs.keydb.dev/). 
 
 ## Prerequisite
 
