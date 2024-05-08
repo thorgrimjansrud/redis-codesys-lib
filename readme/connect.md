@@ -15,8 +15,8 @@ VAR
 END_VAR
 ```
 
-<pre><code><strong>xConnected := Redis.connect(sServer:= '127.0.0.1', wPortNo:= 6379, xUnix:=false);
-</strong>IF xConnected THEN	
+xConnected := Redis.connect(sServer:= '127.0.0.1', wPortNo:= 6379, xUnix:=false);
+IF xConnected THEN	
   ...	
 END_IF
-</code></pre>
+
