@@ -18,9 +18,7 @@ END_VAR
 ```
 IF xTrigSet THEN
 	sResult := Redis.set(psKey:= ADR(sKey), psValue:= ADR(sValue), ptypOptions:= ADR(typSetOptions));
-	IF typResult.sData <> '' AND typResult.enuStatusCodes = 0 THEN
-		xTrigSet := FALSE;
-	ELSIF typResult.enuStatusCodes <> 0 THEN
+	IF sResult <> '' THEN
 		xTrigSet := FALSE;
 	END_IF
 END_IF	 	 

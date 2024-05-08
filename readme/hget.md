@@ -17,7 +17,7 @@ END_VAR
 
 ```
 IF xTrigHget THEN
- 	 typResult := Redis.Hget(psKey:= ADR(sKey), psField:= ADR(sField));
+ 	sResult := Redis.Hget(psKey:= ADR(sKey), psField:= ADR(sField));
   	IF sResult <> '' THEN
 	   xTrigHget := FALSE;
   	END_IF

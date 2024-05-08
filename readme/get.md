@@ -18,9 +18,9 @@ END_VAR
 ```
 IF xTrigGet THEN
 	typResult := Redis.Get(psKey:= ADR(sKey));
-	IF typResult.sData <> '' AND typResult.enuStatusCodes = 0 THEN
-		sData := typResult.sData;
+	IF sResult <> '' THEN
 		xTrigSet := FALSE;
+		sData := sResult;
 	END_IF
 END_IF	 
 ```

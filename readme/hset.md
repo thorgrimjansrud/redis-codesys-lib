@@ -17,8 +17,8 @@ END_VAR
 
 ```
 IF xTrigHset THEN
-	typResult := Redis.hset(psKey:= ADR(sKey), psField:= ADR(sField), psValue:= ADR(sValue));
-	IF typResult.sData = '0' OR sResHset = '1' THEN
+	sResult := Redis.Hset(psKey:= ADR(sKey), asField:= asField, asValue:= asValue);
+	IF sResult <> '' THEN 
 		xTrigHset := FALSE;
 	END_IF
 END_IF

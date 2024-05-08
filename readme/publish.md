@@ -17,7 +17,7 @@ END_VAR
 
 ```
 IF xTrigPub THEN
-	typResult := Redis.publish(psChannel:= ADR(sChannel), psMessage:= ADR(sMessage));
+	sResult := Redis.publish(psChannel:= ADR(sChannel), psMessage:= ADR(sMessage));
 	IF typResult.sData <> '' THEN
 		xTrigPub := FALSE;
 	END_IF
