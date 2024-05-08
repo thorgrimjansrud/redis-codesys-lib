@@ -16,15 +16,9 @@ A [CoDeSys ](https://www.codesys.com/) client for [Redis ](https://redis.io/) an
 
 A Redis or KeyDB database.
 
-### CoDeSys libraries
+### CoDeSys 
 
-All necesarry libraries are availible in a standard CoDeSys installation. Add these to your project:
-
-* Standard
-* StringUtils
-* TCP
-* Util
-* CmpSocketUnix
+Compiled in 3.5.19.20 (SP19 patch 2).
 
 ## Supported commands
 
