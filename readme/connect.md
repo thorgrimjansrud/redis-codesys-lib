@@ -6,7 +6,7 @@ description: Method
 
 ## Codesys usage
 
-The CONNECT method will connect to a remote Redis server at given IP or unix socket:
+Connect to a remote Redis server at given IP or unix socket:
 
 ```
 VAR	
