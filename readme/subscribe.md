@@ -6,22 +6,24 @@ description: Method
 
 ## Codesys usage
 
-The SUBSCRIBE method subscribes to spedific channels:
+Subscribes to spesific channels. Subscriber has it's own instance seperate from the RedisClient:
 
 ```
 VAR	
 	RedisSubscriber : FbRedis;
-	RedisSub : ISubscriber := RedisSubscriber; 
+	RedisSub : ISubscriber := RedisSubscriber;
+	xSubConnected : BOOL;
+	sIP : STRING; 
+	wDefaultPort : WORD := 6379;
+	asSubscriptions :  ARRAY [1..gcMAX_SUBSCRIPTIONS] OF STRING(gcMAX_STRINGLENGHT);
+	atypSubResult : ARRAY [1..gcMAX_SUBSCRIPTIONS] OF typSubResult;
 END_VAR
 ```
 
 ```
-xSubConnected := RedisSub.connect('127.0.0.1', wPortNo:= 6379, xUnix:=TRUE);
+xSubConnected := RedisSub.connect(sIP, wPortNo:= wDefaultPort, xUnix:=FALSE);
 IF xSubConnected THEN
-	asSubscriptions[1] := 'weather';
-	asSubscriptions[2] := 'sports';
-	asSubscriptions[3] := 'news';
-	atypSubResult := RedisSub.subscribe(asChannel:= asSubscriptions);
+	atypSubResult := RedisSub.subscribe(asChannel:= asSubscriptions);;
 END_IF
 ```
 
