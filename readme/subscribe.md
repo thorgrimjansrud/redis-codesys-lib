@@ -21,7 +21,7 @@ END_VAR
 ```
 
 ```
-xSubConnected := RedisSub.connect(sIP, wPortNo:= wDefaultPort, xUnix:=FALSE);
+xSubConnected := RedisSub.connect(sServer:= sIP, wPortNo:= wDefaultPort, xUnix:=FALSE);
 IF xSubConnected THEN
 	atypSubResult := RedisSub.subscribe(asChannel:= asSubscriptions);;
 END_IF
