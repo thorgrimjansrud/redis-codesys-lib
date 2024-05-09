@@ -9,7 +9,7 @@ description: Redis Codesys client
 ## About
 
 A [CoDeSys ](https://www.codesys.com/) client for [Redis ](https://redis.io/) and [KeyDB](https://docs.keydb.dev/). 
-Description how to install [here](https://redis.io/](https://help.codesys.com/webapp/_cds_adding_libraries_to_repository;product=codesys;version=3.5.17.0 ).
+Description how to install [here](https://help.codesys.com/webapp/_cds_adding_libraries_to_repository;product=codesys;version=3.5.17.0 ).
 
 ## Prerequisite
 
