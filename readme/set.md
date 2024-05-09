@@ -6,20 +6,24 @@ description: Method
 
 ## Codesys usage
 
-The SET method writes key and value:
+Writes key and value:
 
 ```
 VAR	
 	RedisClient : FbRedis;
 	Redis : IClient := RedisClient;
+	xTrigger : BOOL;
+	sResult, sKey, sValue : STRING;
+	typSetOptions : typSetOptions;
 END_VAR
 ```
 
 ```
-IF xTrigSet THEN
+IF xTrigger THEN	
+	typSetOptions.uliEX := dwSetTime; // E.g. set the expire time in secunds.
 	sResult := Redis.set(psKey:= ADR(sKey), psValue:= ADR(sValue), ptypOptions:= ADR(typSetOptions));
 	IF sResult <> '' THEN
-		xTrigSet := FALSE;
+		xTrigger := FALSE;
 	END_IF
 END_IF	 	 
 ```
