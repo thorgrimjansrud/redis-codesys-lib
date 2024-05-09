@@ -20,7 +20,7 @@ END_VAR
 
 ```
 IF xTrigger THEN	
-	typSetOptions.uliEX := dwSetTime; // E.g. set the expire time in secunds.
+	typSetOptions.uliEX := 3; // E.g. set the expire time to 3 seconds.
 	sResult := Redis.set(psKey:= ADR(sKey), psValue:= ADR(sValue), ptypOptions:= ADR(typSetOptions));
 	IF sResult <> '' THEN
 		xTrigger := FALSE;
