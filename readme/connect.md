@@ -12,6 +12,7 @@ Connect to a remote Redis server at given IP or unix socket:
 VAR	
 	RedisClient : FbRedis;
 	Redis : IClient := RedisClient;
+	xConnected : BOOL;
 END_VAR
 ```
 ```
