@@ -13,6 +13,7 @@ VAR
 	RedisClient : FbRedis;
 	Redis : IClient := RedisClient;
 	xTrigger : BOOL;
+	sResult, sKey : STRING;
 END_VAR
 ```
 
