@@ -6,21 +6,22 @@ description: Method
 
 ## Codesys usage
 
-The GET method retrieves value from a key inside datastructure typResult:
+Retrieves value from a key:
 
 ```
 VAR	
 	RedisClient : FbRedis;
 	Redis : IClient := RedisClient;
+	xTrigger : BOOL;
+	sResult, sKey : STRING;
 END_VAR
 ```
 
 ```
-IF xTrigGet THEN
-	typResult := Redis.Get(psKey:= ADR(sKey));
+IF xTrigger THEN	
+	sResult := Redis.Get(psKey:= ADR(sKey));
 	IF sResult <> '' THEN
-		xTrigSet := FALSE;
-		sData := sResult;
+		xTrigger := FALSE;
 	END_IF
 END_IF	 
 ```
