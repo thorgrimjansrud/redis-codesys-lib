@@ -6,7 +6,7 @@ description: Method
 
 ## Codesys usage
 
-The EXCISTS method checks if the key excists or not:
+Checks if the key excists or not:
 
 ```
 VAR	
