@@ -13,11 +13,12 @@ VAR
 	RedisClient : FbRedis;
 	Redis : IClient := RedisClient;
 	xConnected : BOOL;
-	sIP : STRING; // IP or filedescriptor
+	sIP : STRING; 
+	wDefaultPort : WORD := 6379;
 END_VAR
 ```
 ```
-xConnected := Redis.connect(sServer:= sIP, wPortNo:= 6379, xUnix:=false);
+xConnected := Redis.connect(sServer:= sIP, wPortNo:= wDefaultPort, xUnix:=false);
 IF xConnected THEN	
   ...	
 END_IF
