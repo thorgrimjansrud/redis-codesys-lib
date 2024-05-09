@@ -6,20 +6,24 @@ description: Method
 
 ## Codesys usage
 
-The PUBLISH method posts a message to the given channel:
+Posts a message to the given channel:
 
 ```
 VAR	
 	RedisClient : FbRedis;
 	Redis : IClient := RedisClient;
+	xTrigger : BOOL;
+	sResult : STRING(gcMAX_STRINGLENGHT);
+	sPubChannel: STRING(gcMAX_STRINGLENGHT);
+	sPubMessage: STRING(gcMAX_STRINGLENGHT);
 END_VAR
 ```
 
 ```
-IF xTrigPub THEN
+IF xTrigger THEN
 	sResult := Redis.publish(psChannel:= ADR(sChannel), psMessage:= ADR(sMessage));
 	IF typResult.sData <> '' THEN
-		xTrigPub := FALSE;
+		xTrigger := FALSE;
 	END_IF
 END_IF
 ```
