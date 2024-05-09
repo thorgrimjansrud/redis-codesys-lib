@@ -12,7 +12,7 @@ Checks if the key excists or not:
 VAR	
 	RedisClient : FbRedis;
 	Redis : IClient := RedisClient;
-
+	xTrigger : BOOL;
 END_VAR
 ```
 
