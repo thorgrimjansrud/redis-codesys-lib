@@ -14,9 +14,9 @@ VAR
 	Redis : IClient := RedisClient;
 END_VAR
 ```
-
+```
 xConnected := Redis.connect(sServer:= '127.0.0.1', wPortNo:= 6379, xUnix:=false);
 IF xConnected THEN	
   ...	
 END_IF
-
+```
