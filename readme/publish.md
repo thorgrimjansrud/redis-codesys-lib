@@ -22,7 +22,7 @@ END_VAR
 ```
 IF xTrigger THEN
 	sResult := Redis.publish(psChannel:= ADR(sPubChannel), psMessage:= ADR(sPubMessage));
-	IF typResult.sData <> '' THEN
+	IF sResult <> '' THEN
 		xTrigger := FALSE;
 	END_IF
 END_IF
