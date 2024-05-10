@@ -21,6 +21,10 @@ A Redis or KeyDB database.
 
 Compiled in 3.5.19.20 (SP19 patch 2).
 
+### Known issues
+
+Use "redis_without_unix" library for devices that does not support CmpSocketUnix library.
+
 ## Supported commands
 
 * [CONNECT](readme/connect.md)
