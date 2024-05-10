@@ -22,7 +22,7 @@ END_VAR
 
 ```
 IF xTrigger THEN
-	sRootPath : STRING := WORD_AS_STRING(W:= 16#24, ORDER:= FALSE);	
+	sRootPath := WORD_AS_STRING(W:= 16#24, ORDER:= FALSE);
 	sResult := Redis.JsonSet(psKey:= ADR(sKey),psPath:= ADR(sRootPath),psValue:= ADR(sValue),xNX:= xNX,xXX:= xXX);
 	IF sResult <> '' THEN
 		xTrigger := FALSE;
