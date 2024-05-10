@@ -23,5 +23,5 @@ IF xTrigger THEN
 	IF TO_INT(sResult) > 0 THEN
 		xTrigger := FALSE;
 	END_IF
-END_IFF
+END_IF
 ```
