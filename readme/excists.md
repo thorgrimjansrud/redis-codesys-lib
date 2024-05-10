@@ -14,6 +14,7 @@ VAR
 	Redis : IClient := RedisClient;
 	xTrigger : BOOL;
 	sResult, sKey : STRING;
+	asKey: ARRAY[1..3] OF STRING(gcMAX_STRINGLENGHT); 
 END_VAR
 ```
 
