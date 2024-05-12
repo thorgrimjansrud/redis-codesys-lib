@@ -6,7 +6,7 @@ description: Method
 
 ## Codesys usage
 
-Subscribes to spesific channels. Subscriber has it's own instance seperate from the RedisClient:
+Subscribes to spesific channels. Subscriber locks the subscription to given list of messages/topics:  
 
 ```
 VAR	
