@@ -35,5 +35,6 @@ Use "redis_without_unix" library for devices that does not support CmpSocketUnix
 * [EXCISTS](readme/excists.md)
 * [PUBLISH](readme/publish.md)
 * [SUBSCRIBE](readme/subscribe.md)
+* [UNSUBSCRIBE](readme/unsubscribe.md)
 * [JSON.SET](readme/json.set.md)
 
