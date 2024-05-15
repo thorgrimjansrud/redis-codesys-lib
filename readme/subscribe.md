@@ -2,7 +2,7 @@
 description: Method
 ---
 
-# UNSUBSCRIBE
+# SUBSCRIBE
 
 ## Codesys usage
 
