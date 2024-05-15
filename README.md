@@ -23,7 +23,8 @@ Compiled in 3.5.19.20 (SP19 patch 2).
 
 ### Known issues
 
-Use "redis_without_unix" library for devices that does not support CmpSocketUnix library.
+Some devices are not supporting CmpSocketUnix library.
+Poll me [here ](https://github.com/thorgrimjansrud/redis-codesys-lib/discussions/categories/general) for any questions.
 
 ## Supported commands
 
