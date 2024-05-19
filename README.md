@@ -24,7 +24,6 @@ Compiled in 3.5.19.20 (SP19 patch 2).
 ### Known issues
 
 Some devices are not supporting CmpSocketUnix library.
-Poll me [here ](https://github.com/thorgrimjansrud/redis-codesys-lib/discussions/categories/general) for any questions.
 
 ## Supported commands
 
