@@ -15,7 +15,11 @@ Description how to install [here ](https://help.codesys.com/webapp/_cds_adding_l
 
 ### Database
 
-A Redis or KeyDB database.
+E.g. Redis in Docker [here ](https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/docker/):
+```
+docker run -d --restart unless-stopped --name redis-stack -p 6379:6379 -p 8001:8001 redis/redis-stack:latest
+```
+Use Redis Insight (localhost:8001/) to monitor actions.
 
 ### CoDeSys 
 
