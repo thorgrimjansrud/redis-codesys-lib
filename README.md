@@ -41,4 +41,8 @@ Some devices are not supporting CmpSocketUnix library.
 * [SUBSCRIBE](readme/subscribe.md)
 * [UNSUBSCRIBE](readme/unsubscribe.md)
 * [JSON.SET](readme/json.set.md)
+* [LPUSH](readme/lpush.md)
+* [RPUSH](readme/rpush.md)
+* [LPOP](readme/lpop.md)
+
 
