@@ -2,20 +2,20 @@
 description: Method
 ---
 
-# UNSUBSCRIBE
+# PUNSUBSCRIBE
 
 ## Codesys usage
 
-Unsubscribes to spesific channel(s). Subscriber needs to run. Feedback in atypSubResult:
+Unsubscribes the client from the given patterns, or from all of them if none is given. Subscriber needs to run. Feedback in atypSubResult:
 
 ```
 VAR	
 	RedisSubscriber : FbRedis;
 	RedisSub : ISubscriber := RedisSubscriber;
-	xSubConnected, xSubscribe : BOOL;
+	xSubConnected, xPSubscribe, xPUnsubscribe: BOOL;
 	sIP : STRING; 
 	wDefaultPort : WORD := 6379;
-	asSubscriptions, asUnsubscribe :  ARRAY [1..gcMAX_SUBSCRIPTIONS] OF STRING(gcMAX_STRINGLENGHT);
+	asSubscriptions, asPUnsubscribe :  ARRAY [1..gcMAX_SUBSCRIPTIONS] OF STRING(gcMAX_STRINGLENGHT);
 	atypSubResult : ARRAY [1..gcMAX_SUBSCRIPTIONS] OF typSubResult;
 END_VAR
 ```
@@ -24,7 +24,8 @@ END_VAR
 xSubConnected := RedisSub.Connect(sServer:= sIP, wPortNo:= wDefaultPort, xUnix:=FALSE);
 IF xSubConnected THEN
 	atypSubResult := RedisSub.SubscriberBase(asChannel:= asSubscriptions, xTrigger:= xSubscribe);
-	RedisSub.Unsubscribe(asChannel:= asUnsubscribe, xTrigger:= xUnsubscribe); 
+	RedisSub.PSubscribe(asChannel:= asSubscriptions, xTrigger:= xPSubscribe);
+	RedisSub.PUnSubscribe(asChannel:= asPunsubscribe, xTrigger:= xPUnsubscribe);
 END_IF
 ```
 
