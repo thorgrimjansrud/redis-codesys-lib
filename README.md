@@ -23,7 +23,7 @@ Use Redis Insight (localhost:8001/) to monitor actions.
 
 ### CoDeSys 
 
-Compiled in 3.5.19.20 (SP19 patch 2).
+Compiled in 3.5.19.20.
 
 ### Known issues
 
