@@ -28,6 +28,8 @@ Compiled in 3.5.19.20.
 ### Known issues
 
 Some devices are not supporting CmpSocketUnix library.
+Streams have som missing features.
+
 
 ## Supported commands
 
@@ -46,5 +48,7 @@ Some devices are not supporting CmpSocketUnix library.
 * [LPUSH](readme/lpush.md)
 * [RPUSH](readme/rpush.md)
 * [LPOP](readme/lpop.md)
+* [XADD](readme/xadd.md)
+* [XREAD](readme/xread.md)
 
 
