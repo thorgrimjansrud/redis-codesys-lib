@@ -10,7 +10,7 @@ Read data from one or multiple streams:
 
 ```
 VAR	
-   	RedisCient : FbRedis;
+    RedisCient : FbRedis;
     RedisStream : IStream := RedisCient;
     xConnected, xXRead: BOOL;
     sIP : STRING; 
