@@ -51,4 +51,7 @@ Streams have som missing features.
 * [XADD](readme/xadd.md)
 * [XREAD](readme/xread.md)
 
+## Examples
+
+* [WagoSysDynamicIoMapping](readme/WagoSysDynamicIoMapping.md)
 
