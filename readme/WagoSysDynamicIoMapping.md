@@ -1,8 +1,8 @@
 ---
-description: Method
+description: Gateway
 ---
 
-# WagoSysDynamicIoMapping library
+# Redis IO gateway
 
 ## Codesys usage
 
