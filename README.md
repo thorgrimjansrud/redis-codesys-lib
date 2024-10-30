@@ -38,6 +38,7 @@ Streams have som missing features.
 * [SET](readme/set.md)
 * [HSET](readme/hset.md)
 * [HGET](readme/hget.md)
+* [HGETALL](readme/hgetall.md)
 * [EXCISTS](readme/excists.md)
 * [PUBLISH](readme/publish.md)
 * [SUBSCRIBE](readme/subscribe.md)
@@ -50,6 +51,7 @@ Streams have som missing features.
 * [LPOP](readme/lpop.md)
 * [XADD](readme/xadd.md)
 * [XREAD](readme/xread.md)
+
 
 ## Examples
 
