@@ -18,10 +18,8 @@ END_VAR
 ```
 
 ```
-IF xTrigger THEN
- 	sResult := Redis.Hget(psKey:= ADR(sKey), psField:= ADR(sField));
-  	IF sResult <> '' THEN
-	   xTrigger := FALSE;
-  	END_IF
+xConnected := RedisStream.Connect(sServer:= sIP, wPortNo:= wDefaultPort, xUnix:=FALSE);
+IF xConnected THEN
+	atypElements := Redis.HgetAll(psKey:= ADR(sKey));
 END_IF
 ```
