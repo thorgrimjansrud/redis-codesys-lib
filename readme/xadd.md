@@ -26,7 +26,7 @@ END_VAR
 xConnected := RedisStream.Connect(sServer:= sIP, wPortNo:= wDefaultPort, xUnix:=FALSE);
 IF xConnected THEN
     IF xStreamXAdd THEN
-        sResult := RedisStream.XAdd(psKey:= ADR(sKey), typEntryId:= typEntryId, asField:= asfield,	asValue:= asValue, pTypStreamOpt:= ADR(TypStreamOpt));
+        sResult := RedisStream.XAdd(psKey:= ADR(sKey), typEntryId:= typEntryId, asField:= asfield, asValue:= asValue, pTypStreamOpt:= ADR(TypStreamOpt));
         IF sResult <> '' THEN
             xStreamXAdd := FALSE;
         END_IF	
