@@ -51,15 +51,24 @@ Some devices are not supporting CmpSocketUnix library. Streams have som missing 
 * [XADD](readme/xadd.md)
 * [XREAD](readme/xread.md)
 
-## CRG-stack 
-(C)odesys-(R)edis-(G)rafana stack.
+## (C)odesys-(R)edis-(G)rafana stack
 
-### Docker Compose
+We can test the CODESYS library with Redis in Docker with an ARM64/AMD64 device.
+
+Download and install the RCG stack (requires docker-compose):
+```
+wget -O docker-compose.yml https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/main/docker/docker-compose.yml --no-check-certificate
 ```
 
+We use unix socket to communicate, permit docker access to unix socket:
+```
+sudo chmod ugo+rw /tmp/redis.sock
 ```
 
-
+Install and run the CRG stack:
+```
+docker-compose up
+```
 
 ## Examples
 
