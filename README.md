@@ -57,7 +57,7 @@ We can test the CODESYS library with Redis docker container and ARM64/AMD64 devi
 
 Download Redis configuration
 ```
-wget -O docker-compose.yml https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/main/docker/redis.conf --no-check-certificate
+wget -O redis.conf https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/main/docker/redis.conf --no-check-certificate
 ```
 Download and install the RCG stack (requires docker-compose):
 ```
