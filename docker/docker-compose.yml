@@ -1,3 +1,6 @@
+
+# Error: Redis Insigh does not connect to Redis db 
+
 services:
   redis-server:
     image: redis/redis-stack-server:latest
