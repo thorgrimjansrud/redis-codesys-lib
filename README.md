@@ -51,6 +51,16 @@ Some devices are not supporting CmpSocketUnix library. Streams have som missing 
 * [XADD](readme/xadd.md)
 * [XREAD](readme/xread.md)
 
+## CRG-stack 
+(C)odesys-(R)edis-(G)rafana stack.
+
+### Docker Compose
+```
+
+```
+
+
+
 ## Examples
 
 * [WagoSysDynamicIoMapping](readme/WagoSysDynamicIoMapping.md)

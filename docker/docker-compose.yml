@@ -1,0 +1,36 @@
+services:
+  redis-server:
+    image: redis/redis-stack-server:latest
+    container_name: redis-stack
+    restart: always
+    ports:
+      - '6379:6379'
+      - '8001:8001'
+    command: redis-stack-server --include /usr/local/etc/redis/redis.conf
+    volumes:
+      - /tmp:/tmp
+      - /home/root/redis/redis.conf:/usr/local/etc/redis/redis.conf
+      - redis:/db
+
+  redis-insight:
+    image: redis/redisinsight:latest
+    container_name: redisinsight
+    restart: always
+    ports:
+      - '5540:5540'
+    volumes:
+      - redisinsight:/data
+
+
+  #grafana:
+  #  image: grafana/grafana
+  #  container_name: grafana
+  #  restart: always
+  #  ports:
+  #    - '3000:3000'
+  #  volumes:
+  #    - /tmp:/tmp
+
+volumes:
+  redis:
+  redisinsight:
