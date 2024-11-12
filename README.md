@@ -67,7 +67,6 @@ We use unix socket to communicate, permit docker access:
 ```
 sudo chmod ugo+rw /tmp/redis.sock
 ```
-
 Compose the CRG stack:
 ```
 docker-compose up
