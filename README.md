@@ -53,7 +53,7 @@ Some devices are not supporting CmpSocketUnix library. Streams have som missing 
 
 ## (C)odesys-(R)edis-(G)rafana stack
 
-We can test the CODESYS library with Redis in Docker with an ARM64/AMD64 device.
+We can test the CODESYS library with Redis docker container and ARM64/AMD64 devices.
 
 Download and install the RCG stack (requires docker-compose):
 ```
