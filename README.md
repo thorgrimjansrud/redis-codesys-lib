@@ -57,6 +57,7 @@ Redis methods are spread over to different Interfaces. IBase.Connect is mandator
 ## Codesys-Redis-Grafana (CRG-Stack)
 
 We can test the CODESYS library with Redis docker container on ARM64/AMD64 devices. Grafana is also added.
+Stack is installed with docker compose.
 
 Before you start, check paths in the docker compose file.
 
@@ -64,7 +65,7 @@ Redis configuration
 ```
 wget -O redis.conf https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/main/docker/redis.conf --no-check-certificate
 ```
-CRG stack (requires docker-compose):
+CRG stack:
 ```
 wget -O docker-compose.yml https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/main/docker/docker-compose.yml --no-check-certificate
 ```
