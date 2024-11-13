@@ -10,18 +10,6 @@ description: Redis Codesys client
 
 A [CoDeSys ](https://www.codesys.com/)client for [Redis, ](https://redis.io/)[KeyDB](https://docs.keydb.dev) and [DragonflyDB](https://www.dragonflydb.io/). Description how to install [here ](https://help.codesys.com/webapp/\_cds\_adding\_libraries\_to\_repository;product=codesys;version=3.5.17.0).
 
-## Prerequisite
-
-### Database
-
-E.g. Redis in Docker [here ](https://redis.io/docs/latest/operate/oss\_and\_stack/install/install-stack/docker/):
-
-```
-docker run -d --restart unless-stopped --name redis-stack -p 6379:6379 -p 8001:8001 redis/redis-stack:latest
-```
-
-Use Redis Insight (localhost:8001/) to monitor actions.
-
 ### CoDeSys
 
 Compiled in 3.5.19.7
