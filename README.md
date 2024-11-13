@@ -24,7 +24,7 @@ Use Redis Insight (localhost:8001/) to monitor actions.
 
 ### CoDeSys
 
-Compiled in 3.5.19.20.
+Compiled in 3.5.19.7
 
 ### Known issues
 
@@ -51,11 +51,14 @@ Some devices are not supporting CmpSocketUnix library. Streams have som missing 
 * [XADD](readme/xadd.md)
 * [XREAD](readme/xread.md)
 
-## (C)odesys-(R)edis-(G)rafana stack
+## About the CODESYS interfaces
+Redis methods are spread over to different Interfaces. IBase.Connect is mandatory for the connection. In addition you can choose interfaces besed on what functioality you need. E.g. you connect with interface IBase and read streams with interface IStream. In this case you need to instantiate both interfaces.
 
-We can test the CODESYS library with Redis docker container and ARM64/AMD64 devices.
+## Codesys-Redis-Grafana (CRG-Stack)
 
-Before you start check the paths you are using with the compose file.
+We can test the CODESYS library with Redis docker container on ARM64/AMD64 devices. Grafana is also added.
+
+Before you start, check paths in the docker compose file.
 
 Redis configuration
 ```
@@ -65,13 +68,13 @@ CRG stack (requires docker-compose):
 ```
 wget -O docker-compose.yml https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/main/docker/docker-compose.yml --no-check-certificate
 ```
-Workaround: We use unix socket to communicate, permit docker access:
-```
-sudo chmod ugo+rw /tmp/redis.sock
-```
 Compose:
 ```
 docker-compose up
+```
+Permit docker access (WORKAROUND):
+```
+sudo chmod ugo+rw /tmp/redis.sock
 ```
 
 ## Examples
