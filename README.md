@@ -63,7 +63,7 @@ Download and install the CRG stack (requires docker-compose):
 ```
 wget -O docker-compose.yml https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/main/docker/docker-compose.yml --no-check-certificate
 ```
-We use unix socket to communicate, permit docker access:
+Workaround: We use unix socket to communicate, permit docker access:
 ```
 sudo chmod ugo+rw /tmp/redis.sock
 ```

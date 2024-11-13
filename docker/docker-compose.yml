@@ -1,27 +1,30 @@
 
-# Error: Redis Insigh does not connect to Redis db 
+# Path to redis.conf must be updated to actual device path-to-redis.conf
+# Use Network_mode to communicate from Insight localhost (127.0.0.1) to Redis db. 
 
 services:
   redis-server:
     image: redis/redis-stack-server:latest
     container_name: redis-stack
     restart: always
+    network_mode: host
     ports:
       - '6379:6379'
     command: redis-stack-server --include /usr/local/etc/redis/redis.conf
     volumes:
       - /tmp:/tmp
+      - redis:/data
       - /home/root/redis/redis.conf:/usr/local/etc/redis/redis.conf
-      - redis:/db
 
   redis-insight:
     image: redis/redisinsight:latest
     container_name: redisinsight
     restart: always
+    network_mode: host
     ports:
       - '5540:5540'
     volumes:
-      - redisinsight:/data
+      - redis:/data
 
   grafana:
     image: grafana/grafana
@@ -34,4 +37,3 @@ services:
 
 volumes:
   redis:
-  redisinsight:
