@@ -51,7 +51,7 @@ Some devices are not supporting CmpSocketUnix library. Streams have som missing 
 * [XADD](readme/xadd.md)
 * [XREAD](readme/xread.md)
 
-## About the CODESYS interfaces
+## About the CODESYS interfaces 
 Redis methods are spread over to different Interfaces. IBase.Connect is mandatory for the connection. In addition you can choose interfaces besed on what functioality you need. E.g. you connect with interface IBase and read streams with interface IStream. In this case you need to instantiate both interfaces.
 
 ## Codesys-Redis-Grafana (CRG-Stack)
