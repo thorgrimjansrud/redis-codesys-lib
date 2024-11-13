@@ -12,7 +12,7 @@ A [CoDeSys ](https://www.codesys.com/)client for [Redis, ](https://redis.io/)[Ke
 
 ### CoDeSys
 
-Compiled in 3.5.19.7
+Compiled in 3.5.19.2
 
 ### Known issues
 
