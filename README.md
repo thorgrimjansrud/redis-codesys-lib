@@ -47,7 +47,7 @@ Redis methods are spread over to different Interfaces. IBase is mandatory for th
 We can test the CODESYS library with Redis docker container on ARM64/AMD64 devices. Grafana is also added.
 Stack is installed with docker compose. Before you start, check paths in the docker compose file.
 
-Clone this reposetory, or get the configuration files by:
+Clone this reposetory and copy files to the device, or get the configuration files directly by:
 
 Redis configuration
 ```
