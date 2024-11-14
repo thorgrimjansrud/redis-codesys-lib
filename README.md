@@ -40,12 +40,14 @@ Some devices are not supporting CmpSocketUnix library. Streams have som missing 
 * [XREAD](readme/xread.md)
 
 ## About the CODESYS interfaces 
-Redis methods are spread over to different Interfaces. IBase.Connect is mandatory for the connection. In addition you can choose what interfaces you need for functioality e.g. connect with interface IBase and read streams with another interface IStream. In this case you need to instantiate both interfaces.
+Redis methods are spread over to different Interfaces. IBase is mandatory for the connection. You can choose what other interfaces you need for functioality e.g. connect with interface IBase and read streams with interface IStream. In this case you need to instantiate both interfaces.
 
 ## Codesys-Redis-Grafana (CRG-Stack)
 
 We can test the CODESYS library with Redis docker container on ARM64/AMD64 devices. Grafana is also added.
 Stack is installed with docker compose. Before you start, check paths in the docker compose file.
+
+Clone this reposetory, or get the configuration files by:
 
 Redis configuration
 ```
@@ -64,8 +66,8 @@ Permit docker access (for Grafana):
 sudo chmod ugo+rw /tmp/redis.sock
 ```
 
-We can now connect to Redis on http://<IP>:5540 and configure database connection on 127.0.0.1:6379.
-Grafana is availible on http://<IP>:3000 with Redis datasource on /tmp/unix.sock.
+We can now connect to Redis on http://IP:5540 and configure database connection on 127.0.0.1:6379.
+Grafana is availible on http://IP:3000 with Redis datasource on /tmp/unix.sock.
 
 ## Examples
 
