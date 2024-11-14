@@ -59,10 +59,13 @@ Compose:
 ```
 docker-compose up
 ```
-Permit docker access (WORKAROUND):
+Permit docker access (for Grafana):
 ```
 sudo chmod ugo+rw /tmp/redis.sock
 ```
+
+We can now connect to Redis on http://<IP>:5540 and configure database connection on 127.0.0.1:6379.
+Grafana is availible on http://<IP>:3000 with Redis datasource on /tmp/unix.sock.
 
 ## Examples
 
