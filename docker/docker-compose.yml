@@ -2,6 +2,8 @@
 # "<PATH>/redis.conf" must be updated to fit actual path in the device
 # Use Network_mode to communicate from Insight localhost (127.0.0.1) to Redis db.
 
+version: "3"
+
 services:
   redis-server:
     image: redis/redis-stack-server:latest
