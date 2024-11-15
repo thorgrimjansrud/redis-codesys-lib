@@ -49,19 +49,20 @@ Stack is installed with docker compose. Before you start, check paths in the doc
 
 Clone this reposetory and copy files to the device, or get the configuration files directly by:
 
-Redis configuration
+### Redis configuration
+Seems like redis/redis-stack-server sends PCP (Performance Co-Pilot) on localhost:6379 so port is changed to 9001.
 ```
 wget -O redis.conf https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/main/docker/redis.conf --no-check-certificate
 ```
-CRG stack:
+### CRG stack
 ```
 wget -O docker-compose.yml https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/main/docker/docker-compose.yml --no-check-certificate
 ```
-Compose:
+### Compose
 ```
 docker-compose up
 ```
-Permit docker access (for Grafana):
+### Docker access (quickfix for Grafana)
 ```
 sudo chmod ugo+rw /tmp/redis.sock
 ```
