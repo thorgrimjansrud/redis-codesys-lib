@@ -53,7 +53,7 @@ Compose file:
 ```
 wget -O docker-compose.yml https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/main/docker/docker-compose.yml --no-check-certificate
 ```
-Socket access for Grafan:
+Socket access for Grafana:
 ```
 sudo chmod ugo+rw /tmp/redis.sock
 ```
