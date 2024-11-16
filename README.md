@@ -40,35 +40,29 @@ Some devices are not supporting CmpSocketUnix library. Streams have som missing 
 * [XREAD](readme/xread.md)
 
 ## About the CODESYS interfaces 
-Redis methods are spread over to different Interfaces. IBase is mandatory for the connection. You can choose what other interfaces you need for functionality e.g. connect with interface IBase and read streams with interface IStream. In this case you need to instantiate both interfaces.
+Redis methods are spread over to different Interfaces. IBase is mandatory for the connection. You can choose what other interfaces you need for functionality e.g. connect with interface IBase and read streams with interface IStream. In such case you need to instantiate both interfaces.
 
 ## Codesys-Redis-Grafana (CRG-Stack)
 
-We can test the CODESYS library with Redis docker container on ARM64/AMD64 devices. Grafana is also added.
-Stack is installed with docker compose. Before you start, check paths in the docker compose file.
+Tested on ARM64/AMD64. Stack can be installed with docker compose (docker-folder). Before you start, check paths in the docker compose file.
 
-Clone this reposetory and copy files to the device, or get the configuration files directly by:
-
-### Redis configuration
-Seems like redis/redis-stack-server sends PCP (Performance Co-Pilot) on localhost:6379 so port is changed to 9001.
+Redis configuration:
 ```
 wget -O redis.conf https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/main/docker/redis.conf --no-check-certificate
 ```
-### CRG stack
+Note: Seems like redis/redis-stack-server sends PCP (Performance Co-Pilot) on localhost:6379 so port is here changed to 9001.
+
+Compose file:
 ```
 wget -O docker-compose.yml https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/main/docker/docker-compose.yml --no-check-certificate
 ```
-### Compose
-```
-docker-compose up
-```
-### Docker access (quickfix for Grafana)
+Socket access for Grafan:
 ```
 sudo chmod ugo+rw /tmp/redis.sock
 ```
 
-We can now connect to Redis on http://IP:5540 and configure database connection on 127.0.0.1:6379.
-Grafana is availible on http://IP:3000 with Redis datasource on /tmp/unix.sock.
+We can now connect to Redis UI on http://IP:5540 and configure database connection on 127.0.0.1:9001.
+Grafana is availible on http://IP:3000 with Redis datasource on unix socket.
 
 ## Examples
 
