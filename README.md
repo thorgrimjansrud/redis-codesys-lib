@@ -16,7 +16,8 @@ Compiled in 3.5.19.2
 
 ### Known issues
 
-Some devices are not supporting CmpSocketUnix library. Streams have som missing features.
+Some devices are not supporting CmpSocketUnix library. 
+Streams and timeseries have som missing features.
 
 ## Supported commands
 
