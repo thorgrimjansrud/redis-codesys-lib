@@ -38,6 +38,8 @@ Some devices are not supporting CmpSocketUnix library. Streams have som missing 
 * [LPOP](readme/lpop.md)
 * [XADD](readme/xadd.md)
 * [XREAD](readme/xread.md)
+* [XTSCREATE](readme/tscreate.md)
+* [XTSADD](readme/tsadd.md)
 
 ## CRG-Stack
 
