@@ -39,8 +39,8 @@ Streams and timeseries have som missing features.
 * [LPOP](readme/lpop.md)
 * [XADD](readme/xadd.md)
 * [XREAD](readme/xread.md)
-* [XTSCREATE](readme/tscreate.md)
-* [XTSADD](readme/tsadd.md)
+* [TSCREATE](readme/tscreate.md)
+* [TSADD](readme/tsadd.md)
 
 ## CRG-Stack
 
