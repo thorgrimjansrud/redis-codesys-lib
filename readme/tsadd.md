@@ -26,7 +26,7 @@ END_VAR
 xConnected := IRedisBase.Connect(sServer:= sIP, wPortNo:= wDefaultPort, xUnix:= xUnix);
 IF xConnected THEN
     IF xTrigger THEN
-        sResult := ITimeseries.XAdd(psKey:= ADR(sKey), typEntryId:= typEntryId, asField:= ADR(asfield),	asValue:= ADR(asValue), pTypStreamOpt:= ADR(TypStreamOpt));
+        sResult := ITimeseries.TsAdd(psKey:= ADR(sKey), typEntryId:= typEntryId, asField:= ADR(asfield),	asValue:= ADR(asValue), pTypStreamOpt:= ADR(TypStreamOpt));
         IF sResult <> '' THEN
             xTrigger := FALSE;
         END_IF	
