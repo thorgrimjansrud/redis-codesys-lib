@@ -17,7 +17,7 @@ Compiled in 3.5.19.2
 ### Known issues
 
 Some devices are not supporting CmpSocketUnix library. 
-Streams and timeseries have som missing features.
+JsonSet, Streams, timeseries have som missing features. 
 
 ## Version
 Current version is 1.0.0.11 ([History](readme/history.md))
