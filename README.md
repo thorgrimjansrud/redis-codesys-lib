@@ -19,6 +19,9 @@ Compiled in 3.5.19.2
 Some devices are not supporting CmpSocketUnix library. 
 Streams and timeseries have som missing features.
 
+## Version
+Current version is 1.0.0.11 ([History](readme/history.md))
+
 ## Supported commands
 
 * [CONNECT](readme/connect.md)
