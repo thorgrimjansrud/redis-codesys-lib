@@ -20,7 +20,7 @@ Some devices are not supporting CmpSocketUnix library.
 JsonSet, Streams, timeseries have som missing features. 
 
 ## Version
-Current version is 1.0.0.11 ([History](readme/history.md))
+Current version is 1.0.0.12 ([History](readme/history.md))
 
 ## Supported commands
 

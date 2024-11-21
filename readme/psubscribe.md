@@ -12,7 +12,7 @@ Subscribes the client to the given patterns. Subscriber needs to run. Feedback i
 VAR	
 	RedisSubscriber : FbRedis;
 	RedisSub : ISubscriber := RedisSubscriber; 
-	xSubConnected, xPSubscribe : BOOL;
+	xSubConnected, xSubscribe, xPSubscribe : BOOL;
 	sIP : STRING; 
 	wDefaultPort : WORD := 6379;
 	asSubscriptions :  ARRAY [1..gcMAX_SUBSCRIPTIONS] OF STRING(gcMAX_STRINGLENGHT);
@@ -23,7 +23,7 @@ END_VAR
 ```
 xSubConnected := RedisSub.connect(sServer:= sIP, wPortNo:= wDefaultPort, xUnix:=FALSE);
 IF xSubConnected THEN
-	atypSubResult := RedisSub.SubscriberBase(asChannel:= asSubscriptions);
+	atypSubResult := RedisSub.SubscriberBase(asChannel:= asSubscriptions, xAddChannel:= xSubscribe);
 	RedisSub.PSubscribe(asChannel:= asSubscriptions, xTrigger:= xPSubscribe);
 END_IF
 ```

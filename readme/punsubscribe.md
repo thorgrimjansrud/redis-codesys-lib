@@ -23,7 +23,7 @@ END_VAR
 ```
 xSubConnected := RedisSub.Connect(sServer:= sIP, wPortNo:= wDefaultPort, xUnix:=FALSE);
 IF xSubConnected THEN
-	atypSubResult := RedisSub.SubscriberBase(asChannel:= asSubscriptions, xTrigger:= xSubscribe);
+	atypSubResult := RedisSub.SubscriberBase(asChannel:= asSubscriptions, xAddChannel:= xSubscribe);
 	RedisSub.PSubscribe(asChannel:= asSubscriptions, xTrigger:= xPSubscribe);
 	RedisSub.PUnSubscribe(asChannel:= asPunsubscribe, xTrigger:= xPUnsubscribe);
 END_IF

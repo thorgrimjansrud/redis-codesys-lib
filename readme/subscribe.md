@@ -23,7 +23,7 @@ END_VAR
 ```
 xSubConnected := RedisSub.connect(sServer:= sIP, wPortNo:= wDefaultPort, xUnix:=FALSE);
 IF xSubConnected THEN
-	atypSubResult := RedisSub.SubscriberBase(asChannel:= asSubscriptions, xTrigger:= xSubscribe);
+	atypSubResult := RedisSub.SubscriberBase(asChannel:= asSubscriptions, xAddChannel:= xSubscribe);
 END_IF
 ```
 
