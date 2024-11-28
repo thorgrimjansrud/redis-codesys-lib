@@ -14,10 +14,6 @@ A [CoDeSys ](https://www.codesys.com/)client for [Redis, ](https://redis.io/)[Ke
 
 Compiled in 3.5.19.2
 
-## Version  
-
-Current version is 1.0.1.0 ([History](readme/history.md))
-
 ## Supported commands
 
 * [CONNECT](readme/connect.md)

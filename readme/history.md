@@ -1,4 +1,4 @@
-### 1.0.0.13
+### 1.0.1.0
 - Issue #38. Description/readme Pub-Sub.
 - Issue #35. SET without sKey gives a variable.
 - Connect method. Use host path for IP and unix socket.
