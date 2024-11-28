@@ -10,8 +10,8 @@ Removes and returns the first elements of the list stored at key:
 
 ```
 VAR	
-	RedisClient : FbRedis;
-	Redis : IClient := RedisClient;
+	FbRedis : FbRedis;
+	IRedis : IClient := FbRedis;
 	xTrigger : BOOL;
 	uiCount: uint;
 	sKey : STRING;
@@ -20,5 +20,5 @@ END_VAR
 ```
 
 ```
-asElement := Redis.LPop(psKey:= ADR(sKey), uiCount:= uiCount, xTrigger:= xTrigger);
+asElement := IRedis.LPop(psKey:= ADR(sKey), uiCount:= uiCount, xTrigger:= xTrigger);
 ```

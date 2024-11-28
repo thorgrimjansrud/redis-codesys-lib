@@ -10,8 +10,8 @@ Appends the specified stream entry to the stream at the specified key:
 
 ```
 VAR	
-    RedisCient : FbRedis;
-    RedisStream : IStream := RedisCient;
+    FbRedis : FbRedis;
+    IRedis : IStream := FbRedis;
     xConnected, xStreamXAdd: BOOL;
     sIP : STRING; 
     wDefaultPort : WORD := 6379;
@@ -23,13 +23,17 @@ END_VAR
 ```
 
 ```
-xConnected := RedisStream.Connect(sServer:= sIP, wPortNo:= wDefaultPort, xUnix:=FALSE);
+
 IF xConnected THEN
     IF xStreamXAdd THEN
-        sResult := RedisStream.XAdd(psKey:= ADR(sKey), typEntryId:= typEntryId, asField:= ADR(asfield), asValue:= ADR(asValue), pTypStreamOpt:= ADR(TypStreamOpt));
+        sResult := IRedis.XAdd(psKey:= ADR(sKey), typEntryId:= typEntryId, asField:= ADR(asfield), asValue:= ADR(asValue), pTypStreamOpt:= ADR(TypStreamOpt));
         IF sResult <> '' THEN
             xStreamXAdd := FALSE;
         END_IF	
     END_IF
 END_IF
 ```
+
+## Note
+
+The typEntry is the ID if the stream specified either as 1) sEntryId or 2) uliTime_ms and uliSequence (1 and 2 can not be combined).

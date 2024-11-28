@@ -10,8 +10,8 @@ Unsubscribes to spesific channel(s). Subscriber needs to run. Feedback in atypSu
 
 ```
 VAR	
-	RedisSubscriber : FbRedis;
-	RedisSub : ISubscriber := RedisSubscriber;
+	FbRedis : FbRedis;
+	IRedis : ISubscriber := FbRedis;
 	xSubConnected, xSubscribe : BOOL;
 	sIP : STRING; 
 	wDefaultPort : WORD := 6379;
@@ -21,10 +21,12 @@ END_VAR
 ```
 
 ```
-xSubConnected := RedisSub.Connect(sServer:= sIP, wPortNo:= wDefaultPort, xUnix:=FALSE);
 IF xSubConnected THEN
-	atypSubResult := RedisSub.SubscriberBase(asChannel:= asSubscriptions, xTrigger:= xSubscribe);
-	RedisSub.Unsubscribe(asChannel:= asUnsubscribe, xTrigger:= xUnsubscribe); 
+	atypSubResult := IRedis.SubscriberBase(asChannel:= asSubscriptions, xTrigger:= xSubscribe);
+	IRedis.Unsubscribe(asChannel:= asUnsubscribe, xTrigger:= xUnsubscribe); 
 END_IF
 ```
 
+## Note
+
+Once the client enters the subscribed state it is not supposed to issue any other commands, except for additional SUBSCRIBE, SSUBSCRIBE, PSUBSCRIBE, UNSUBSCRIBE, SUNSUBSCRIBE, PUNSUBSCRIBE, PING, RESET and QUIT commands. However, if RESP3 is used (see HELLO) it is possible for a client to issue any commands while in subscribed state.

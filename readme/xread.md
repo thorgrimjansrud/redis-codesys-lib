@@ -10,8 +10,8 @@ Read data from one or multiple streams:
 
 ```
 VAR	
-    RedisCient : FbRedis;
-    RedisStream : IStream := RedisCient;
+    FbRedis : FbRedis;
+    IRedis : IStream := FbRedis;
     xConnected, xXRead: BOOL;
     sIP : STRING; 
     wDefaultPort : WORD := 6379;
@@ -23,9 +23,12 @@ END_VAR
 ```
 
 ```
-xConnected := RedisStream.Connect(sServer:= sIP, wPortNo:= wDefaultPort, xUnix:=FALSE);
 IF xConnected THEN
     // Note! Block not supported, and Id's are set to 0-0.
-    atypStreamResult := RedisStream.XRead(asKey:= asKey, uiCount:= uiCountMax, atypEntryId:= atypEntryId, xTrigger:= xXRead);
+    atypStreamResult := IRedis.XRead(asKey:= asKey, uiCount:= uiCountMax, atypEntryId:= atypEntryId, xTrigger:= xXRead);
 END_IF
 ```
+
+## Note
+
+The typEntry is the ID if the stream specified either as 1) sEntryId or 2) uliTime_ms and uliSequence (1 and 2 can not be combined).

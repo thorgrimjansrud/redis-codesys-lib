@@ -10,9 +10,8 @@ Create a new time series:
 
 ```
 VAR	
-    RedisClient : FbRedis;
-    IRedisBase: IBase := Redis;
-    Redis : ITimeseries := RedisClient;
+	FbRedis : FbRedis;
+	IRedis : ITimeseries := FbRedis;
     xConnected, xTrigger, xUnix: BOOL;
     wDefaultPort : WORD := 6379;
     sResult, sKey, sIP : STRING;
@@ -21,11 +20,9 @@ END_VAR
 ```
 
 ```
-xConnected := IRedisBase.Connect(sServer:= sIP, wPortNo:= wDefaultPort, xUnix:= xUnix);
-
 IF xConnected then
     IF xTrigger THEN	
-        sResult := ITimeseries.TsCreate(psKey:= ADR(sKey), ptypTsOptions:= ADR(typTsOptions));
+        sResult := IRedis.TsCreate(psKey:= ADR(sKey), ptypTsOptions:= ADR(typTsOptions));
         IF sResult <> '' THEN
             xTrigger := FALSE;
         END_IF

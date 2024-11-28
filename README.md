@@ -14,13 +14,9 @@ A [CoDeSys ](https://www.codesys.com/)client for [Redis, ](https://redis.io/)[Ke
 
 Compiled in 3.5.19.2
 
-### Known issues
+## Version  
 
-Some devices are not supporting CmpSocketUnix library. 
-JsonSet, Streams, timeseries have som missing features. 
-
-## Version
-Current version is 1.0.0.12 ([History](readme/history.md))
+Current version is 1.0.1.0 ([History](readme/history.md))
 
 ## Supported commands
 
@@ -32,7 +28,7 @@ Current version is 1.0.0.12 ([History](readme/history.md))
 * [HGETALL](readme/hgetall.md)
 * [EXCISTS](readme/excists.md)
 * [PUBLISH](readme/publish.md)
-* [SUBSCRIBE](readme/subscribe.md)
+* [SUBSCRIBERBASE](readme/subscriberBase.md)
 * [UNSUBSCRIBE](readme/unsubscribe.md)
 * [PSUBSCRIBE](readme/psubscribe.md)
 * [PUNSUBSCRIBE](readme/punsubscribe.md)

@@ -10,8 +10,8 @@ Retrieves value from a key:
 
 ```
 VAR	
-	RedisClient : FbRedis;
-	Redis : IClient := RedisClient;
+	FbRedis : FbRedis;
+	IRedis : IClient := FbRedis;
 	xTrigger : BOOL;
 	sResult, sKey : STRING;
 END_VAR
@@ -19,7 +19,7 @@ END_VAR
 
 ```
 IF xTrigger THEN	
-	sResult := Redis.Get(psKey:= ADR(sKey));
+	sResult := IRedis.Get(psKey:= ADR(sKey));
 	IF sResult <> '' THEN
 		xTrigger := FALSE;
 	END_IF

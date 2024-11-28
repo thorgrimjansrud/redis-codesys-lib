@@ -10,8 +10,8 @@ Posts a message to the given channel:
 
 ```
 VAR	
-	RedisClient : FbRedis;
-	Redis : IClient := RedisClient;
+	FbRedis : FbRedis;
+	IRedis : IClient := FbRedis;
 	xTrigger : BOOL;
 	sResult : STRING(gcMAX_STRINGLENGHT);
 	sPubChannel: STRING(gcMAX_STRINGLENGHT);
@@ -21,7 +21,7 @@ END_VAR
 
 ```
 IF xTrigger THEN
-	sResult := Redis.publish(psChannel:= ADR(sPubChannel), psMessage:= ADR(sPubMessage));
+	sResult := IRedis.publish(psChannel:= ADR(sPubChannel), psMessage:= ADR(sPubMessage));
 	IF sResult <> '' THEN
 		xTrigger := FALSE;
 	END_IF

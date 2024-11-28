@@ -10,8 +10,8 @@ Subscribes the client to the given patterns. Subscriber needs to run. Feedback i
 
 ```
 VAR	
-	RedisSubscriber : FbRedis;
-	RedisSub : ISubscriber := RedisSubscriber; 
+	FbRedis : FbRedis;
+	IRedis : ISubscriber := FbRedis; 
 	xSubConnected, xSubscribe, xPSubscribe : BOOL;
 	sIP : STRING; 
 	wDefaultPort : WORD := 6379;
@@ -21,10 +21,12 @@ END_VAR
 ```
 
 ```
-xSubConnected := RedisSub.connect(sServer:= sIP, wPortNo:= wDefaultPort, xUnix:=FALSE);
 IF xSubConnected THEN
-	atypSubResult := RedisSub.SubscriberBase(asChannel:= asSubscriptions, xAddChannel:= xSubscribe);
-	RedisSub.PSubscribe(asChannel:= asSubscriptions, xTrigger:= xPSubscribe);
+	atypSubResult := IRedis.SubscriberBase(asChannel:= asSubscriptions, xAddChannel:= xSubscribe);
+	IRedis.PSubscribe(asChannel:= asSubscriptions, xTrigger:= xPSubscribe);
 END_IF
 ```
 
+## Note
+
+Once the client enters the subscribed state it is not supposed to issue any other commands, except for additional SUBSCRIBE, SSUBSCRIBE, PSUBSCRIBE, UNSUBSCRIBE, SUNSUBSCRIBE, PUNSUBSCRIBE, PING, RESET and QUIT commands. However, if RESP3 is used (see HELLO) it is possible for a client to issue any commands while in subscribed state.
