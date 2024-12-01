@@ -13,8 +13,6 @@ VAR
     FbRedis : FbRedis;
     IRedis : IStream := FbRedis;
     xConnected, xXRead: BOOL;
-    sIP : STRING; 
-    wDefaultPort : WORD := 6379;
     asKey : ARRAY [1..gcMAX_STREAMS] OF STRING(gcMAX_STRINGLENGHT);
     uiCountMax : UINT;
     atypEntryId : ARRAY [1..gcMAX_ELEMENT] OF typEntryId;

@@ -10,11 +10,10 @@ Create a new time series:
 
 ```
 VAR	
-	FbRedis : FbRedis;
-	IRedis : ITimeseries := FbRedis;
-    xConnected, xTrigger, xUnix: BOOL;
-    wDefaultPort : WORD := 6379;
-    sResult, sKey, sIP : STRING;
+    FbRedis : FbRedis;
+    IRedis : ITimeseries := FbRedis;
+    xTrigger : BOOL;
+    sResult, sKey : STRING;
     typTsOptions : typSetOptions;
 END_VAR
 ```

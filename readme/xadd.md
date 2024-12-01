@@ -13,8 +13,6 @@ VAR
     FbRedis : FbRedis;
     IRedis : IStream := FbRedis;
     xConnected, xStreamXAdd: BOOL;
-    sIP : STRING; 
-    wDefaultPort : WORD := 6379;
     sKey, sResult : STRING(gcMAX_STRINGLENGHT);
     asfield, asValue : ARRAY [1..gcMAX_ELEMENT] OF STRING(gcMAX_STRINGLENGHT);
     typEntryId : typEntryId;
@@ -25,11 +23,9 @@ END_VAR
 ```
 
 IF xConnected THEN
-    IF xStreamXAdd THEN
-        sResult := IRedis.XAdd(psKey:= ADR(sKey), typEntryId:= typEntryId, asField:= ADR(asfield), asValue:= ADR(asValue), pTypStreamOpt:= ADR(TypStreamOpt));
-        IF sResult <> '' THEN
-            xStreamXAdd := FALSE;
-        END_IF	
+    sResult := IRedis.XAdd(psKey:= ADR(sKey), xAutoGenId:= xAutoGenId, typEntryId:= typEntryId, asField:= asField, asValue:= asValue, pTypStreamOpt:= ADR(TypStreamOpt), xTrigger:= xTrigger);
+    if sResult <> '' then
+        // do something
     END_IF
 END_IF
 ```

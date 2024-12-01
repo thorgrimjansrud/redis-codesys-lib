@@ -13,8 +13,6 @@ VAR
 	FbRedis : FbRedis;
 	IRedis : ISubscriber := FbRedis;
 	xSubConnected, xPSubscribe, xPUnsubscribe: BOOL;
-	sIP : STRING; 
-	wDefaultPort : WORD := 6379;
 	asSubscriptions, asPUnsubscribe :  ARRAY [1..gcMAX_SUBSCRIPTIONS] OF STRING(gcMAX_STRINGLENGHT);
 	atypSubResult : ARRAY [1..gcMAX_SUBSCRIPTIONS] OF typSubResult;
 END_VAR

@@ -13,8 +13,6 @@ VAR
     FbRedis: FbRedis;
     IRedis: ITimeseries := FbRedis;
     xConnected, xTrigger, xUnix: BOOL;
-    wDefaultPort : WORD := 6379;
-    sIP : STRING; 
     sKey, sValue, sResult : STRING(gcMAX_STRINGLENGHT);
     typTimestamp : typTimestamp;
     typTsOptions : typTsOptions;
@@ -24,10 +22,10 @@ END_VAR
 ```
 IF xConnected THEN
     IF xTrigger THEN
-        sResult := IRedis.TsAdd(psKey:= ADR(sKey), typEntryId:= typEntryId, asField:= ADR(asfield),	asValue:= ADR(asValue), pTypStreamOpt:= ADR(TypStreamOpt));
+        sResult := IRedis.XAdd(psKey:= ADR(sKey), typEntryId:= typEntryId, asField:= ADR(asfield),	asValue:= ADR(asValue), pTypStreamOpt:= ADR(TypStreamOpt));
         IF sResult <> '' THEN
             xTrigger := FALSE;
         END_IF	
     END_IF
-END_IF 	 
+END_IF	 
 ```
