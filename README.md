@@ -63,4 +63,4 @@ Grafana is availible on http://IP:3000 with Redis datasource on unix socket.
 
 * [WagoSysDynamicIoMapping](readme/WagoSysDynamicIoMapping.md)
 * [PubSub](readme/PubSub.md)
-* [Pipelining](readme/Pipelining.md)
+* [Pipelining](readme/pipelining.md)
