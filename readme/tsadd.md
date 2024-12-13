@@ -12,7 +12,7 @@ Appends the specified stream entry to the stream at the specified key:
 VAR	
     FbRedis: FbRedis;
     IRedis: ITimeseries := FbRedis;
-    xConnected, xTrigger, xUnix: BOOL;
+    xConnected, xTrigger: BOOL;
     sKey, sValue, sResult : STRING(gcMAX_STRINGLENGHT);
     typTimestamp : typTimestamp;
     typTsOptions : typTsOptions;
@@ -22,7 +22,7 @@ END_VAR
 ```
 IF xConnected THEN
     IF xTrigger THEN
-        sResult := IRedis.XAdd(psKey:= ADR(sKey), typEntryId:= typEntryId, asField:= ADR(asfield),	asValue:= ADR(asValue), pTypStreamOpt:= ADR(TypStreamOpt));
+        sResult := IRedis.TsAdd(psKey:= ADR(sKey), pTyptimestamp:= ADR(typTimestamp), psValue:= ADR(sValue), ptypTsOptions:= ADR(typTsOptions));
         IF sResult <> '' THEN
             xTrigger := FALSE;
         END_IF	
