@@ -41,4 +41,4 @@ END_IF
 
 ## Note
 
-Still under developement, limit's not well documented at this point.
+Still under developement, limits not well documented at this point.
