@@ -1,13 +1,12 @@
 ---
-description: Publish and Subscribe (v1.0.1.2)
+description: Publish and Subscribe (v1.0.1.4)
 ---
 
 # How to publish to multiple topics
 
 ## Codesys usage
 
-The publish method takes only one topic and message. The example program shows one way of publishing to several topics within 1 program cycle.
-Be aware of fan-out calling this method concurrently in a loop (e.g. WHILE sResult <> '' DO).
+The publish method takes only one topic and message. The example program shows one way of publishing values at a fast phase.
 ```
 PROGRAM PLC_PRG
 VAR
@@ -18,15 +17,14 @@ VAR
 	// Subscriber
 	FbRedisSub : FbRedis;
 	IBaseSub : IBase := FbRedisSub; 
-	ISub : ISubscriber := FbRedisSub; 
+	ISubscriber : ISubscriber := FbRedisSub; 
 	// Vars
-	sResult : STRING(gcMAX_STRINGLENGHT);
-	asPubChannel, asSubscriptions : ARRAY [1..gcMAX_SUBSCRIPTIONS] OF STRING(gcMAX_STRINGLENGHT);
-	atypSubResult : ARRAY [1..gcMAX_SUBSCRIPTIONS] OF typSubResult;
-	asPubMessages : ARRAY [1..gcMAX_SUBSCRIPTIONS] OF STRING(gcMAX_STRINGLENGHT);
-	xInit, xIsConnected, xIsConnectedSub, xAddSubscriberCh: BOOL;
-	iSel, i: INT;
-	oTim: TON;
+	iCount : int;
+	sResult, sPubChannel, sPubMessage : STRING(gcMAX_STRINGLENGHT);
+	asSubscriptions : ARRAY [1..gcMAX_SUBSCRIPTIONS] OF STRING(gcMAX_STRINGLENGHT);
+	ptypSubResults : POINTER TO typSubResults;
+	pasResult : POINTER TO ARRAY [1..gcMAX_ELEMENT] OF STRING(gcMAX_STRINGLENGHT);
+	xInit, xBusy, xIsConnected, xIsConnectedSub, xSubActive, xAddSubscriberCh, xPub, xOk, xPSubscribe, xPUnsubscribe: BOOL;
 END_VAR
 ```
 PLC_PRG
@@ -35,53 +33,76 @@ PLC_PRG
 xIsConnected := IBase.Connect(sHost:= '10.0.0.9', wPortNo:= 6379);
 xIsConnectedSub := IBaseSub.Connect(sHost:= '10.0.0.9', wPortNo:= 6379);
 
-IF xIsConnected THEN
-	// Init publish and subscribe channels
-	IF NOT xInit THEN
-		FOR i:=1 TO 3 DO
-			asPubChannel[i] := CONCAT('Triangle_', TO_STRING(i));
-			asSubscriptions[i] := asPubChannel[i];
-		END_FOR
-		xInit := TRUE;
+IF NOT xConnected AND xIsConnectedSub THEN
+	RETURN;
+END_IF
+
+
+// Inhibit send of multiple of same values
+IF NOT xInit THEN
+	xAddSubscriberCh := TRUE;				// Add channel to subscriber
+	asSubscriptions[1] := 'count';			// Channel name for subscribe
+	sPubChannel := 'count';					// Channel name for publish
+	ptypSubResults := ADR(typSubResults);	// Init pointer (only valid before subscriber runs)
+	xInit := TRUE;
+END_IF
+
+// Check subscriber feedback and increase counter only if correct previous counter is recieved
+IF xSubActive AND xBusy AND ptypSubResults^.atypSubMessage[1].sValue = sPubMessage THEN 
+	iCount := iCount + 1;
+	sPubMessage := TO_STRING(iCount);	
+	xBusy := FALSE;
+END_IF
+				
+// Publish new counter value after subscriber has recieved previous value.
+// Because the publisher and subscriber runs at the sme device we must syncronize the pub-sub.
+IF xSubActive AND NOT xBusy THEN
+	xBusy := TRUE;
+	pasResult := IRedis.Publish(psChannel:= ADR(sPubChannel), psMessage:= ADR(sPubMessage));
+END_IF
+
+// Subscriber
+ptypSubResults := ISubscriber.SubscriberBase(asChannel:= asSubscriptions, xAddChannel:= xAddSubscriberCh);
+IF ptypSubResults^.atypSubMessage[1].enuType = eMsgType.subscribe THEN
+	xSubActive := TRUE;
+END_IF
+```
+
+# How to pattern subscribe
+
+```
+// Connect Client and subscriber
+xIsConnected := IBase.Connect(sHost:= '10.0.0.9', wPortNo:= 6379);
+xIsConnectedSub := IBaseSub.Connect(sHost:= '10.0.0.9', wPortNo:= 6379);
+
+IF NOT xConnected AND xIsConnectedSub THEN
+	RETURN;
+END_IF
+
+IF xIsConnected AND xIsConnectedSub THEN
+	// Subscriber must alway run (dont use "xSubscribe" if "psubscribe")
+	ptypSubResults := ISubscriber.SubscriberBase(asChannel:= asSubscriptions, xAddChannel:= xAddSubscriberCh);
+	// Check if recieve fromcorrect channel ''
+	IF ptypSubResults^.atypSubMessage[1].sChannel = 'news' THEN
+		IF ptypSubResults^.atypSubMessage[1].sValue <> '' THEN
+			xOk := TRUE;
+		ELSE
+			xOk := FALSE;
+		END_IF
 	END_IF
-	
-	// Subscribe
-	atypSubResult := ISub.SubscriberBase(asChannel:= asPubMessages, xAddChannel:= xAddSubscriberCh);
-
-	// Timer for trigger publish
-	oTim(IN:= TRUE, PT:= T#1S);
-
+	// PSubscribe
+	asSubscriptions[1] := 'n?ws'; // e.g. n[e]ws, n[a]ws, n[o]ws..
+	ISubscriber.PSubscribe(asChannel:= asSubscriptions, xTrigger:= xPSubscribe);
+	// PUnsubscribe
+	ISubscriber.PUnSubscribe(asChannel:= asSubscriptions, xTrigger:= xPUnsubscribe);
 	// Publish
-	IF oTim.Q THEN
-		// First
-		IF iSel = 0 THEN 
-			asPubMessages[1] := '111';
-			sResult := IClient.publish(psChannel:= ADR(asSubscriptions[1]), psMessage:= ADR(asPubMessages[1]));
-			IF sResult = '' THEN
-				RETURN;
-			END_IF
-			iSel := 1;
-		END_IF
-		// Secund
-		IF iSel = 1 THEN 
-			asPubMessages[2] := '222';
-			sResult := IClient.publish(psChannel:= ADR(asSubscriptions[2]), psMessage:= ADR(asPubMessages[2]));
-			IF sResult = '' THEN
-				RETURN;
-			END_IF
-			iSel := 2;
-		END_IF
-		// Third
-		IF iSel = 2 THEN 
-			asPubMessages[3] := '333';
-			sResult := IClient.publish(psChannel:= ADR(asSubscriptions[3]), psMessage:= ADR(asPubMessages[3]));
-			IF sResult = '' THEN
-				RETURN;
-			END_IF
-			iSel := 0;
-			oTim(IN:= FALSE, PT:= T#1S);
+	sPubChannel := 'news';
+	sPubMessage := 'this is great';
+	IF xPub THEN
+		pasResult := IClient.Publish(psChannel:= ADR(sPubChannel), psMessage:= ADR(sPubMessage));
+		IF pasResult^[1] <> '' THEN
+			xPub := FALSE;
 		END_IF
 	END_IF
 END_IF
 ```
-

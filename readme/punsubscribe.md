@@ -14,13 +14,13 @@ VAR
 	IRedis : ISubscriber := FbRedis;
 	xSubConnected, xPSubscribe, xPUnsubscribe: BOOL;
 	asSubscriptions, asPUnsubscribe :  ARRAY [1..gcMAX_SUBSCRIPTIONS] OF STRING(gcMAX_STRINGLENGHT);
-	atypSubResult : ARRAY [1..gcMAX_SUBSCRIPTIONS] OF typSubResult;
+	patypSubResult : pointer to typSubResults;
 END_VAR
 ```
 
 ```
 IF xSubConnected THEN
-	atypSubResult := IRedis.SubscriberBase(asChannel:= asSubscriptions, xAddChannel:= xSubscribe);
+	patypSubResult := IRedis.SubscriberBase(asChannel:= asSubscriptions, xAddChannel:= xSubscribe);
 	IRedis.PUnSubscribe(asChannel:= asPunsubscribe, xTrigger:= xPUnsubscribe);
 END_IF
 ```

@@ -27,3 +27,8 @@ IF xTrigger THEN
 	END_IF
 END_IF
 ```
+
+## Note
+
+Returns the number of clients that the message was sent to in ARRAY [1].
+if message was piped, returns answer of [1..gcMAX_ELEMENT] that was piped.

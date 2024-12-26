@@ -10,17 +10,17 @@ Subscribe channel(s)
 
 ```
 VAR	
-	FbRedis : FbRedis; // FB for subscriber, must not be used for other methods than subscribe.
+	FbRedis : FbRedis;
 	IRedis : ISubscriber := FbRedis;
 	xSubConnected, xSubscribe : BOOL;
 	asSubscriptions :  ARRAY [1..gcMAX_SUBSCRIPTIONS] OF STRING(gcMAX_STRINGLENGHT);
-	atypSubResult : ARRAY [1..gcMAX_SUBSCRIPTIONS] OF typSubResult;
+	patypSubResult : pointer to typSubResults;
 END_VAR
 ```
 
 ```
 IF xSubConnected THEN
-	atypSubResult := IRedis.SubscriberBase(asChannel:= asSubscriptions, xAddChannel:= xSubscribe);
+	ptypSubResults := IRedis.SubscriberBase(asChannel:= asSubscriptions, xAddChannel:= xSubscribe);
 END_IF
 ```
 
