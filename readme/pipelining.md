@@ -10,11 +10,11 @@ Redis pipelining is a technique for improving performance by issuing multiple co
 
 ```
 VAR	
-	FbRedis : FbRedis;
-	IBase : IBase := FbRedis;
-	IClient : IClient := FBRedis;
-	IPipe : IPipe := FbRedis;
-	xIsConnected, xIsPiped : BOOL;
+    FbRedis : FbRedis;
+    IBase : IBase := FbRedis;
+    IClient : IClient := FBRedis;
+    IPipe : IPipe := FbRedis;
+    xIsConnected, xIsPiped : BOOL;
     iAmount: INT;
     sChannel, sMessage : STRING(gcMAX_STRINGLENGHT);
     pasResultPub: POINTER TO ARRAY [1..gcMAX_ELEMENT] OF STRING(gcMAX_STRINGLENGHT);
