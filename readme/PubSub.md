@@ -2,7 +2,7 @@
 description: Publish and Subscribe (v1.0.1.4)
 ---
 
-# How to publish to multiple topics
+# Pub-Sub
 
 ## Codesys usage
 
