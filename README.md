@@ -29,6 +29,7 @@ Compiled in 3.5.19.2
 * [PSUBSCRIBE](readme/psubscribe.md)
 * [PUNSUBSCRIBE](readme/punsubscribe.md)
 * [JSON.SET](readme/json.set.md)
+* [JSON.GET](readme/json.get.md)
 * [LPUSH](readme/lpush.md)
 * [RPUSH](readme/rpush.md)
 * [LPOP](readme/lpop.md)

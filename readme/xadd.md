@@ -12,8 +12,9 @@ Appends the specified stream entry to the stream at the specified key:
 VAR	
     FbRedis : FbRedis;
     IRedis : IStream := FbRedis;
-    xConnected, xStreamXAdd: BOOL;
-    sKey, sResult : STRING(gcMAX_STRINGLENGHT);
+    xTrigger: BOOL;
+    sKey : STRING(gcMAX_STRINGLENGHT);
+    psResult : POINTER TO STRING(gcMAX_STRINGLENGHT);
     asfield, asValue : ARRAY [1..gcMAX_ELEMENT] OF STRING(gcMAX_STRINGLENGHT);
     typEntryId : typEntryId;
     TypStreamOpt :TypStreamOptions;
@@ -21,12 +22,9 @@ END_VAR
 ```
 
 ```
-
-IF xConnected THEN
-    sResult := IRedis.XAdd(psKey:= ADR(sKey), xAutoGenId:= xAutoGenId, typEntryId:= typEntryId, asField:= asField, asValue:= asValue, pTypStreamOpt:= ADR(TypStreamOpt), xTrigger:= xTrigger);
-    if sResult <> '' then
-        // do something
-    END_IF
+psResult := IRedis.XAdd(psKey:= ADR(sKey), xAutoGenId:= xAutoGenId, typEntryId:= typEntryId, asField:= asField, asValue:= asValue, pTypStreamOpt:= ADR(TypStreamOpt), xTrigger:= xTrigger);
+if psResult^ <> '' then
+    // do something
 END_IF
 ```
 

@@ -13,15 +13,16 @@ VAR
 	FbRedis : FbRedis;
 	IRedis : IClient := FbRedis;
 	xTrigger : BOOL;
-	sResult, sKey : STRING;
+	sKey : STRING;
+	psResult : pointer to STRING(gcMAX_STRINGLENGHT)
 END_VAR
 ```
 
 ```
 IF xTrigger THEN	
-	sResult := IRedis.Get(psKey:= ADR(sKey));
-	IF sResult <> '' THEN
+	psResult := IRedis.Get(psKey:= ADR(sKey));
+	IF psResult^ <> '' THEN
 		xTrigger := FALSE;
 	END_IF
-END_IF	 
+END_IF 
 ```

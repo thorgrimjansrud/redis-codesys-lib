@@ -30,3 +30,7 @@ IF xTrigger THEN
 END_IF 
 ```
 
+## Note sRootPath
+
+When a dollar sign '$' is in a string literal, the following two characters are interpreted as a hexadecimal code according to the coding in ISO/IEC 8859-1. This means $n$r is new line and linebreak. Two dollar '$$' is a dollar '$'.
+

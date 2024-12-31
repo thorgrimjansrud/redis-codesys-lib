@@ -13,7 +13,8 @@ VAR
 	FbRedis : FbRedis;
 	IRedis : IClient := FbRedis;
 	xTrigger : BOOL;
-	sResult, sKey, sValue : STRING;
+	sKey, sValue : STRING;
+	psResult : POINTER TO STRING(gcMAX_STRINGLENGHT);
 	typSetOptions : typSetOptions;
 END_VAR
 ```
@@ -21,11 +22,13 @@ END_VAR
 ```
 IF xTrigger THEN	
 	typSetOptions.uliEX := 3; // E.g. set the expire time to 3 seconds.
-	sResult := IRedis.set(psKey:= ADR(sKey), psValue:= ADR(sValue), ptypOptions:= ADR(typSetOptions));
-	IF sResult <> '' THEN
+	psResult := IRedis.set(psKey:= ADR(sKey), psValue:= ADR(sValue), ptypOptions:= ADR(typSetOptions));
+	IF psResult^ <> '' THEN
 		xTrigger := FALSE;
 	END_IF
-END_IF	 	 
+END_IF 	 
 ```
 
-> Limited to 1 pair.
+## Note
+
+Limited to 1 pair.

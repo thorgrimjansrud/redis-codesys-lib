@@ -12,19 +12,16 @@ Read data from one or multiple streams:
 VAR	
     FbRedis : FbRedis;
     IRedis : IStream := FbRedis;
-    xConnected, xXRead: BOOL;
+    xXRead: BOOL;
     asKey : ARRAY [1..gcMAX_STREAMS] OF STRING(gcMAX_STRINGLENGHT);
     uiCountMax : UINT;
     atypEntryId : ARRAY [1..gcMAX_ELEMENT] OF typEntryId;
-    atypStreamResult : ARRAY [1..gcMAX_STREAMS] OF typStreamResult;
+    patypStreamResult : pointer to ARRAY [1..gcMAX_STREAMS] OF typStreamResult;
 END_VAR
 ```
 
 ```
-IF xConnected THEN
-    // Note! Block not supported, and Id's are set to 0-0.
-    atypStreamResult := IRedis.XRead(asKey:= asKey, uiCount:= uiCountMax, atypEntryId:= atypEntryId, xTrigger:= xXRead);
-END_IF
+patypStreamResult := IRedis.XRead(asKey:= asKey, uiCount:= uiCountMax, atypEntryId:= atypEntryId, xTrigger:= xXRead);
 ```
 
 ## Note

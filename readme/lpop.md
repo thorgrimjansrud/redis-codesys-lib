@@ -15,10 +15,10 @@ VAR
 	xTrigger : BOOL;
 	uiCount: uint;
 	sKey : STRING;
-	asElement : ARRAY [1..gcMAX_HASH] OF STRING(gcMAX_STRINGLENGHT)
+	pasElement : POINTER TO ARRAY [1..gcMAX_ELEMENT] OF STRING(gcMAX_STRINGLENGHT)
 END_VAR
 ```
 
 ```
-asElement := IRedis.LPop(psKey:= ADR(sKey), uiCount:= uiCount, xTrigger:= xTrigger);
+pasElement := IRedis.LPop(psKey:= ADR(sKey), uiCount:= uiCount, xTrigger:= xTrigger);
 ```
