@@ -26,14 +26,14 @@ services:
     volumes:
       - redisinsight:/data
 
-  #grafana:
-  #  image: grafana/grafana
-  #  container_name: grafana
-  #  restart: always
-  #  ports:
-  #    - '3000:3000'
-  #  volumes:
-  #    - /tmp:/tmp
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    restart: always
+    ports:
+      - '3000:3000'
+    volumes:
+      - /tmp:/tmp
 
 volumes:
   redis:
