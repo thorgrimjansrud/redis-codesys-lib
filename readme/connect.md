@@ -18,7 +18,7 @@ VAR
 END_VAR
 ```
 ```
-xConnected := RedisBase.connect(sHost:= sHost, wPortNo:= wDefaultPort);
+xConnected := IRedisBase.connect(sHost:= sHost, wPortNo:= wDefaultPort);
 IF xConnected THEN	
   ...	
 END_IF

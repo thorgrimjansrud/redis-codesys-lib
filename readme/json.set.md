@@ -22,7 +22,7 @@ END_VAR
 
 ```
 IF xTrigger THEN
-	sRootPath := WORD_AS_STRING(W:= 16#24, ORDER:= FALSE); // E.g. we can use the util.lib to insert default root $
+	sRootPath := '$$';
 	sResult := IRedis.JsonSet(psKey:= ADR(sKey),psPath:= ADR(sRootPath),psValue:= ADR(sValue),xNX:= xNX,xXX:= xXX);
 	IF sResult <> '' THEN
 		xTrigger := FALSE;

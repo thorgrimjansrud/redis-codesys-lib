@@ -13,7 +13,7 @@ VAR
 	FbRedis : FbRedis;
 	IRedis : IClient := FbRedis;
 	xTrigger : BOOL;
-	sKey : STRING;
+	asKey : ARRAY [1..3] OF STRING(gcMAX_STRINGLENGHT);
 	psResult : POINTER TO STRING(gcMAX_STRINGLENGHT);
 END_VAR
 ```
