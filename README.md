@@ -4,7 +4,7 @@ description: Redis Codesys client
 
 # redis-codesys-lib
 
-## <mark style="color:red;">02.02.2025: BUG DETECTED IN GET/SET/HGET/HSET.. USE v1.0.1.3</mark>
+## <mark style="color:red;">02.02.2025: BUG DETECTED IN GET/SET/HGET/HSET++ USE v1.0.1.3</mark>
 
 ## About
 
