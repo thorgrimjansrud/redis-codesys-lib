@@ -6,6 +6,7 @@ description: Redis Codesys client
 
 ## <mark style="color:red;">02.02.2025: BUG DETECTED IN GET/SET/HGET/HSET++ USE v1.0.1.3</mark>  
 NOTE! Example code no longer match the library version.
+Update 20.02.2024: Bug found. Working on a fix..
 
 ## About
 
