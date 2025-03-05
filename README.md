@@ -4,17 +4,13 @@ description: Redis Codesys client
 
 # redis-codesys-lib
 
-## <mark style="color:red;">02.02.2025: BUG DETECTED IN GET/SET/HGET/HSET++ USE v1.0.1.3</mark>  
-NOTE! Example code no longer match the library version.  
-Update 20.02.2024: Bug found. Working on a fix..
-
 ## About
 
 A [CoDeSys ](https://www.codesys.com/)client for [Redis, ](https://redis.io/)[KeyDB](https://docs.keydb.dev) and [DragonflyDB](https://www.dragonflydb.io/). Description how to install [here ](https://help.codesys.com/webapp/\_cds\_adding\_libraries\_to\_repository;product=codesys;version=3.5.17.0).
 
 ### CoDeSys
 
-Compiled in 3.5.19.2
+Compiled in 3.5.20.40
 
 ## Supported commands
 
