@@ -6,7 +6,7 @@ description: Redis Codesys client
 
 ## About
 
-A BIG UPTATE WILL COME SOON! 
+A BIG UPTATE WILL COME SOON!  
 [CoDeSys ](https://www.codesys.com/)client for [Redis, ](https://redis.io/)[KeyDB](https://docs.keydb.dev) and [DragonflyDB](https://www.dragonflydb.io/). Description how to install [here ](https://help.codesys.com/webapp/\_cds\_adding\_libraries\_to\_repository;product=codesys;version=3.5.17.0).
 
 ### CoDeSys
