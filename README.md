@@ -6,7 +6,6 @@ description: Redis Codesys client
 
 ## About
 
-A BIG UPTATE WILL COME SOON!  
 [CoDeSys ](https://www.codesys.com/)client for [Redis, ](https://redis.io/)[KeyDB](https://docs.keydb.dev) and [DragonflyDB](https://www.dragonflydb.io/). Description how to install [here ](https://help.codesys.com/webapp/\_cds\_adding\_libraries\_to\_repository;product=codesys;version=3.5.17.0).
 
 ### CoDeSys
@@ -21,17 +20,17 @@ Compiled in 3.5.20.40
 * [HSET](readme/hset.md)
 * [HGET](readme/hget.md)
 * [HGETALL](readme/hgetall.md)
-* [EXCISTS](readme/excists.md)
+* [LPUSH](readme/lpush.md)
+* [RPUSH](readme/rpush.md)
+* [LPOP](readme/lpop.md)
 * [PUBLISH](readme/publish.md)
 * [SUBSCRIBERBASE](readme/subscriberBase.md)
 * [UNSUBSCRIBE](readme/unsubscribe.md)
 * [PSUBSCRIBE](readme/psubscribe.md)
 * [PUNSUBSCRIBE](readme/punsubscribe.md)
+* [EXCISTS](readme/excists.md)
 * [JSON.SET](readme/json.set.md)
 * [JSON.GET](readme/json.get.md)
-* [LPUSH](readme/lpush.md)
-* [RPUSH](readme/rpush.md)
-* [LPOP](readme/lpop.md)
 * [XADD](readme/xadd.md)
 * [XREAD](readme/xread.md)
 * [TSCREATE](readme/tscreate.md)
