@@ -15,10 +15,16 @@ VAR
 	xTrigger : BOOL;
 	uiCount: uint;
 	sKey : STRING;
-	pasElement : POINTER TO ARRAY [1..gcMAX_ELEMENT] OF STRING(gcMAX_STRINGLENGHT)
+	asElement : ARRAY [1..gcMAX_ELEMENT] OF STRING(gcMAX_STRINGLENGHT);
+	eStatusCode : eStatusCode;
 END_VAR
 ```
 
 ```
-pasElement := IRedis.LPop(psKey:= ADR(sKey), uiCount:= uiCount, xTrigger:= xTrigger);
+IF xTrigger THEN	
+	eStatusCode := IClient.LPop(psKey:= ADR(sKey), uiCount:= uiCount, asElement:= asElement);
+	IF asElement[1] <> '' and eStatusCode = 0 THEN
+		xTrigger := FALSE;
+	END_IF
+END_IF
 ```

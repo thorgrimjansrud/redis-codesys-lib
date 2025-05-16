@@ -12,14 +12,14 @@ Connect to a remote Redis server at given IP or unix socket:
 VAR	
 	FbRedis : FbRedis;
 	IRedisBase : IBase := FbRedis;
-	xConnected : BOOL;
+	typConnectStatus : typConnectStatus;
 	sHost : STRING; 
 	wDefaultPort : WORD := 6379;
 END_VAR
 ```
 ```
-xConnected := IRedisBase.connect(sHost:= sHost, wPortNo:= wDefaultPort);
-IF xConnected THEN	
+typConnectStatus := IRedisBase.connect(sHost:= sHost, wPortNo:= wDefaultPort);
+IF typConnectStatus.xConnected THEN	
   ...	
 END_IF
 ```

@@ -14,31 +14,39 @@ VAR
     IBase : IBase := FbRedis;
     IClient : IClient := FBRedis;
     IPipe : IPipe := FbRedis;
-    xIsConnected, xIsPiped : BOOL;
-    iAmount: INT;
+    xIsPiped : BOOL;
+    iAmount, iWaitingCycle: INT;
     sChannel, sMessage : STRING(gcMAX_STRINGLENGHT);
-    pasResultPub: POINTER TO ARRAY [1..gcMAX_ELEMENT] OF STRING(gcMAX_STRINGLENGHT);
+    asRetValue : ARRAY [1..gcMAX_ELEMENT] OF STRING(gcMAX_STRINGLENGHT);
+	eStatusCode : eStatusCode;
+	unRx : unRx;
 END_VAR
 ```
 
 ```
-xIsConnected := IBase.Connect(sHost:= '10.0.0.8', wPortNo:= 6379);
-IF xIsConnected THEN
-	// Amount of piped telegrams
-	iAmount := 50;
-	// Start pipe
-	xIsPiped := IPipe.Pipeline();	
-	// Data
+// Amount of piped telegrams
+iAmount := 5;
+
+// Start pipe
+xIsPiped := IPipe.Pipeline();	
+
+// Data is i counter values. Wait until ready for new values.
+IF xWait THEN
 	FOR i:=1 TO iAmount DO
-		sChannel := CONCAT('channel_', TO_STRING(i));
-		sMessage := TO_STRING(i);
-		IClient.publish(psChannel:= ADR(sChannel), psMessage:= ADR(sMessage));
+		sChannel := 'counter';
+		sMessage := TO_STRING(iCounter);
+		iCounter := iCounter + 1;
+		// Buffer messages
+		eStatusCode := IClient.Publish(psChannel:= ADR(sChannel), psMessage:= ADR(sMessage), asRetVal:= asRetValue);
 	END_FOR
-	// Execute pipe 
-	pasResultExec := IPipe.Exec();
+END_IF
+
+// Execute pipe 
+IPipe.Exec(asRetVal:= asRetValue);
+IF asRetValue[1] <> '' AND asRetValue[2] <> '' AND asRetValue[3] <> '' AND asRetValue[4] <> '' AND asRetValue[5] <> '' THEN
+	xWait := false;
+ELSE
+	xWait := true; 
 END_IF
 ```
 
-## Note
-
-Still under developement, limits not well documented at this point.
