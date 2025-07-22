@@ -6,11 +6,15 @@ description: Redis Codesys client
 
 ## About
 
-[CoDeSys ](https://www.codesys.com/)client for [Redis, ](https://redis.io/)[KeyDB](https://docs.keydb.dev) and [DragonflyDB](https://www.dragonflydb.io/). Description how to install [here ](https://help.codesys.com/webapp/\_cds\_adding\_libraries\_to\_repository;product=codesys;version=3.5.17.0).
+[CoDeSys ](https://www.codesys.com/)client for [Redis, ](https://redis.io/)[KeyDB](https://docs.keydb.dev) and [DragonflyDB](https://www.dragonflydb.io/). Description how to install [here ](https://help.codesys.com/webapp/_cds_adding_libraries_to_repository;product=codesys;version=3.5.17.0).
 
 ### CoDeSys
 
-Compiled in 3.5.20.40
+Compiled in 3.5.20.50.
+
+In the source library conditional pragmas are used to compile two binaries "redis" and "redis-no-unixsocket". This is described in FbRedis variable list.
+
+Test Driven Development (TDD) in PLC\_PRG.&#x20;
 
 ## Supported commands
 
@@ -41,21 +45,26 @@ Compiled in 3.5.20.40
 Stack can be installed with docker compose (docker-folder). Before you start, check paths in the docker compose file.
 
 Redis configuration:
+
 ```
 wget -O redis.conf https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/main/docker/redis.conf --no-check-certificate
 ```
+
 Note: Seems like redis/redis-stack-server sends PCP (Performance Co-Pilot) on localhost:6379 so port is here changed to 9001.
 
 Compose file:
+
 ```
 wget -O docker-compose.yml https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/main/docker/docker-compose.yml --no-check-certificate
 ```
+
 Socket access for Grafana:
+
 ```
 sudo chmod ugo+rw /tmp/redis.sock
 ```
 
-We can now connect to Redis UI on http://IP:5540 and configure database connection on 127.0.0.1:9001.
+We can now connect to Redis UI on http://IP:5540 and configure database connection on 127.0.0.1:9001.\
 Grafana is availible on http://IP:3000 with Redis datasource on unix socket.
 
 ## Examples
