@@ -72,3 +72,34 @@ Grafana is availible on http://IP:3000 with Redis datasource on unix socket.
 * [WagoSysDynamicIoMapping](readme/WagoSysDynamicIoMapping.md)
 * [Pipelining](readme/pipelining.md)
 * [Blocking](readme/blocking.md)
+
+## Raw Links for AI  
+
+CONNECT: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/excists.md  
+GET: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/get.md  
+SET: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/set.md  
+HSET: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/hset.md  
+HGET: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/hget.md  
+HGETALL: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/hgetall.md  
+LPUSH: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/lpush.md  
+RPUSH: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/rpush.md  
+LPOP: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/lpop.md  
+PUBLISH: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/publish.md  
+SUBSCRIBERBASE: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/subscriberBase.md  
+UNSUBSCRIBE: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/unsubscribe.md  
+PSUBSCRIBE: https://github.com/thorgrimjansrud/redis-codesys-lib/blob/main/readme/psubscribe.md  
+PUNSUBSCRIBE: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/punsubscribe.md   
+EXCISTS: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/excists.md  
+JSON.SET: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/json.set.md  
+JSON.GET: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/json.get.md  
+XADD: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/xadd.md  
+XREAD: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/xread.md  
+TSCREATE: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/tscreate.md  
+TSADD: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/tsadd.md  
+
+WagoSysDynamicIoMapping: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/WagoSysDynamicIoMapping.md  
+Pipelining: http://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/pipelining.md  
+Blocking: https://raw.githubusercontent.com/thorgrimjansrud/redis-codesys-lib/refs/heads/main/readme/blocking.md  
+
+
+
